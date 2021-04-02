@@ -49,7 +49,7 @@ namespace CSharpProject2
                 if (this.hp <= 0)
                 {
                     //적캐릭터의 사망로직 처리
-                    Console.WriteLine($"{Name} is died !!!");
+                    EnemyDie();
                 }
             }
         }
@@ -62,17 +62,35 @@ namespace CSharpProject2
                 Console.WriteLine($"Base Class : {Name}'s Speed Changed {this.speed}");
             }
         }
+
+        //가상 메서드 - 상속을 허용
+        public virtual void EnemyDie()
+        {
+            Console.WriteLine($"{Name} is Die!!!");
+        }
     }
 
     //클래스 상속
+    //파생 클래스 (Abstract Class)
     public class Orc : Enemy
     {
+        private int gemCount = 0;
+
         //생성자 Constructor
         public Orc()
         {
             base.Name = "Orc";
             base.Speed = 10;
             base.Hp = 500;            
+        }
+
+        //메서드 오버라이드 (상속: 부모 클래스의 로직을 포함해서 새로운 로직 추가할 수 있다.)
+        public override void EnemyDie()
+        {
+            base.EnemyDie();
+            //새로운 로직을 추가
+            gemCount = 100;
+            Console.WriteLine($"Gem Count = {gemCount}");
         }
     }
 
@@ -109,6 +127,7 @@ namespace CSharpProject2
 
             Orc orc = new Orc();
             Console.WriteLine(orc.Name);
+            orc.Hp = 0;
 
             Goblin goblin = new Goblin("Goblin", 50, 500);
         }
