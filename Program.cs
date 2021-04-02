@@ -32,8 +32,10 @@ namespace CSharpProject2
         //프로퍼티 정의 : 외부에서 접근가능함.
         public string Name
         {
-            get {}   //getter
-            set {}   //setter
+            get { return this.name;}   //getter
+            set {
+                this.name = value;
+            }   //setter
         }
     }
 
@@ -42,6 +44,11 @@ namespace CSharpProject2
         static void Main(string[] args)
         {
             Enemy enemy = new Enemy();
+            string enemyName = enemy.Name;
+            Console.WriteLine(enemyName);
+
+            enemy.Name = "Orc";
+            Console.WriteLine(enemyName);
         }
     }
 }
