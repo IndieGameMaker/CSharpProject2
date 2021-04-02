@@ -82,7 +82,6 @@ namespace CSharpProject2
             goblin.Name = "Goblin";
             goblin.Hp = 100;
             goblin.Speed = 50;
-
         }
     }
 }
