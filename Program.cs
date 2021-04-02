@@ -21,6 +21,7 @@ namespace CSharpProject2
         //이벤트 : 콜백펑션(Call Back Function)
     */
 
+    //Base Class / Mother Class / 부모 클래스
     public class Enemy
     {
         //필드(Field) : 멤버(Member) m_Age, m_Level
@@ -63,25 +64,40 @@ namespace CSharpProject2
         }
     }
 
+    //클래스 상속
+    public class Orc : Enemy
+    {
+        //생성자 Constructor
+        public Orc()
+        {
+            base.Name = "Orc";
+            base.Speed = 10;
+            base.Hp = 500;            
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
             //오크 캐릭터 생성 및 초기화
-            Enemy enemy = new Enemy();
-            string enemyName = enemy.Name;
-            Console.WriteLine(enemyName); //No Name
+            // Enemy enemy = new Enemy();
+            // string enemyName = enemy.Name;
+            // Console.WriteLine(enemyName); //No Name
 
-            enemy.Name = "Orc";
-            Console.WriteLine(enemy.Name);
-            enemy.Hp = 0;
-            enemy.Speed = 20;
+            // enemy.Name = "Orc";
+            // Console.WriteLine(enemy.Name);
+            // enemy.Hp = 0;
+            // enemy.Speed = 20;
 
             //고블린 캐릭터 생성 및 초기화
-            Enemy goblin = new Enemy();
-            goblin.Name = "Goblin";
-            goblin.Hp = 100;
-            goblin.Speed = 50;
+            // Enemy goblin = new Enemy();
+            // goblin.Name = "Goblin";
+            // goblin.Hp = 100;
+            // goblin.Speed = 50;
+
+            Orc orc = new Orc();
+            Console.WriteLine(orc.Name);
         }
     }
 }
