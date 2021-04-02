@@ -59,7 +59,7 @@ namespace CSharpProject2
             get {return this.speed;}
             set {
                 this.speed = value;
-                Console.WriteLine($"{Name}'s Speed Changed {this.speed}");
+                Console.WriteLine($"Base Class : {Name}'s Speed Changed {this.speed}");
             }
         }
     }
@@ -76,11 +76,22 @@ namespace CSharpProject2
         }
     }
 
+    public class Goblin : Enemy
+    {
+        //생성자
+        public Goblin(string _Name, int _Hp, int _Speed)
+        {
+            base.Name = _Name;
+            base.Speed = _Speed;
+            base.Hp = _Hp;
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            //오크 캐릭터 생성 및 초기화
+        /*             //오크 캐릭터 생성 및 초기화
             // Enemy enemy = new Enemy();
             // string enemyName = enemy.Name;
             // Console.WriteLine(enemyName); //No Name
@@ -94,10 +105,12 @@ namespace CSharpProject2
             // Enemy goblin = new Enemy();
             // goblin.Name = "Goblin";
             // goblin.Hp = 100;
-            // goblin.Speed = 50;
+            // goblin.Speed = 50; */
 
             Orc orc = new Orc();
             Console.WriteLine(orc.Name);
+
+            Goblin goblin = new Goblin("Goblin", 50, 500);
         }
     }
 }
