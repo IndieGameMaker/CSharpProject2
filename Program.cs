@@ -66,7 +66,7 @@ namespace CSharpProject2
         //가상 메서드 - 상속을 허용
         public virtual void EnemyDie()
         {
-            Console.WriteLine($"{Name} is Die!!!");
+            Console.WriteLine($"Base Class : {Name} is Die!!!");
         }
     }
 
