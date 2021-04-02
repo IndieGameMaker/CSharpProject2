@@ -37,6 +37,19 @@ namespace CSharpProject2
                 this.name = value;
             }   //setter
         }
+
+        public int Hp
+        {
+            get { return this.hp; }
+            set {
+                this.hp = value;
+                if (this.hp <= 0)
+                {
+                    //적캐릭터의 사망로직 처리
+                    Console.WriteLine($"{this.name} is died !!!");
+                }
+            }
+        }
     }
 
     class Program
@@ -48,7 +61,8 @@ namespace CSharpProject2
             Console.WriteLine(enemyName);
 
             enemy.Name = "Orc";
-            Console.WriteLine(enemyName);
+            Console.WriteLine(enemy.Name);
+            enemy.Hp = 0;
         }
     }
 }
