@@ -25,18 +25,20 @@ namespace CSharpProject2
     {
         //필드(Field) : 멤버(Member) m_Age, m_Level
         //접근제한자 데이터타입 변수명 = 초깃값
-        private string name = "No Name";
+        //private string name = "No Name";
         private int hp = 100;
         private int speed = 10;
 
         //프로퍼티 정의 : 외부에서 접근가능함.
-        public string Name
-        {
-            get { return this.name;}   //getter
-            set {
-                this.name = value;
-            }   //setter
-        }
+        // public string Name
+        // {
+        //     get { return this.name;}   //getter
+        //     set {
+        //         this.name = value;
+        //     }   //setter
+        // }
+        //Auto Property
+        public string Name {get;set;}
 
         public int Hp
         {
@@ -46,7 +48,7 @@ namespace CSharpProject2
                 if (this.hp <= 0)
                 {
                     //적캐릭터의 사망로직 처리
-                    Console.WriteLine($"{this.name} is died !!!");
+                    Console.WriteLine($"{Name} is died !!!");
                 }
             }
         }
@@ -56,7 +58,7 @@ namespace CSharpProject2
             get {return this.speed;}
             set {
                 this.speed = value;
-                Console.WriteLine($"{this.name}'s Speed Changed {this.speed}");
+                Console.WriteLine($"{Name}'s Speed Changed {this.speed}");
             }
         }
     }
@@ -65,14 +67,22 @@ namespace CSharpProject2
     {
         static void Main(string[] args)
         {
+            //오크 캐릭터 생성 및 초기화
             Enemy enemy = new Enemy();
             string enemyName = enemy.Name;
-            Console.WriteLine(enemyName);
+            Console.WriteLine(enemyName); //No Name
 
             enemy.Name = "Orc";
             Console.WriteLine(enemy.Name);
             enemy.Hp = 0;
             enemy.Speed = 20;
+
+            //고블린 캐릭터 생성 및 초기화
+            Enemy goblin = new Enemy();
+            goblin.Name = "Goblin";
+            goblin.Hp = 100;
+            goblin.Speed = 50;
+
         }
     }
 }
