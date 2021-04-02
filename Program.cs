@@ -50,6 +50,15 @@ namespace CSharpProject2
                 }
             }
         }
+
+        public int Speed
+        {
+            get {return this.speed;}
+            set {
+                this.speed = value;
+                Console.WriteLine($"{this.name}'s Speed Changed {this.speed}");
+            }
+        }
     }
 
     class Program
@@ -63,6 +72,7 @@ namespace CSharpProject2
             enemy.Name = "Orc";
             Console.WriteLine(enemy.Name);
             enemy.Hp = 0;
+            enemy.Speed = 20;
         }
     }
 }
